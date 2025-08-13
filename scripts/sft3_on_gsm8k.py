@@ -1,5 +1,4 @@
-# scripts/sft_on_gsm8k_qwen4B.py (V3 - 终极版，同时解决VRAM和RAM溢出,并增加数据示例输出)
-# 用于针对Qwen-4B做SFT
+# scripts/sft_on_gsm8k.py (V3 - 终极版，同时解决VRAM和RAM溢出,并增加数据示例输出)
 
 import os
 import torch
@@ -23,8 +22,8 @@ logger = logging.getLogger(__name__)
 # --- 2. 路径与参数定义 ---
 SCRIPT_DIR = os.path.dirname(__file__)
 PROJECT_ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, '..'))
-MODEL_PATH = os.path.join(PROJECT_ROOT, "models", "Qwen3-4B")
-OUTPUT_DIR = os.path.join(PROJECT_ROOT, "training_outputs", "qwen3-4B-sft-gsm8k")
+MODEL_PATH = os.path.join(PROJECT_ROOT, "models", "Qwen3-0.6B")
+OUTPUT_DIR = os.path.join(PROJECT_ROOT, "training_outputs", "qwen3-0.6B-sft-gsm8k")
 
 # --- 3. 数据集处理 ---
 def preprocess_dataset():
