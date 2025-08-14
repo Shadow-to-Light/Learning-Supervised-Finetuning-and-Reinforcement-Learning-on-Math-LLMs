@@ -1,5 +1,6 @@
 # scripts/sft_on_gsm8k_qwen4B.py (V3 - 终极版，同时解决VRAM和RAM溢出,并增加数据示例输出)
-# 用于针对Qwen-4B做SFT
+# 用于针对Qwen-4B做SFT，学习率下降了，增加了预热
+# 没用添加flash-attn，大幅调整 TrainingArguments
 
 import os
 import torch
@@ -147,7 +148,8 @@ if __name__ == "__main__":
         MODEL_PATH,
         quantization_config=quantization_config,
         device_map="auto",
-        trust_remote_code=True
+        trust_remote_code=True,
+        attn_implementation="sdpa",
     )
     
     model = prepare_model_for_kbit_training(model)
@@ -168,11 +170,13 @@ if __name__ == "__main__":
     training_args = TrainingArguments(
         output_dir=OUTPUT_DIR,
         num_train_epochs=3,
-        per_device_train_batch_size=2,
-        per_device_eval_batch_size=1,
-        eval_accumulation_steps=16,
+        per_device_train_batch_size=8,# 增加训练批次大小
+        per_device_eval_batch_size=16,# 增加评估批次大小
+        eval_accumulation_steps=2,
+        dataloader_num_workers=8,             # 新增！开启8个CPU核心并行加载数据，避免GPU等待
         gradient_accumulation_steps=4,
-        learning_rate=2e-5,
+        learning_rate=1e-5,#适当降低了学习率
+        warmup_ratio=0.1,#增加学习率预热
         bf16=True,
         logging_strategy="steps",
         logging_steps=10,
