@@ -1,4 +1,4 @@
-# scripts/evaluate_model_qwenorpodis.py(包含回答细节,加速,padding修复)
+# scripts/evaluate_GSM8K.py(包含回答细节,加速,padding修复)
 
 import os
 import torch
