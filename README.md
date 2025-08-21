@@ -30,7 +30,7 @@ Only key code snippets are shared here. Some training code and results are tempo
 - **Large Language Models** / 大语言模型
 
 ## 📁 Project Structure / 项目结构
-'''
+```
 .
 ├── README.md
 ├── figure
@@ -52,7 +52,7 @@ Only key code snippets are shared here. Some training code and results are tempo
     ├── sft_on_gsm8k_qwen3_0.6B.py
     ├── sft_on_gsm8k_qwen3_4B.py
     └── visualize_attention.py
-'''
+```
 ## 📊 Datasets / 数据集
 
 - **GSM8K**: Grade School Math 8K - English math word problems  
