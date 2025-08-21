@@ -10,7 +10,7 @@ A collection of practical scripts and implementations for Supervised Fine-Tuning
 
 ## 📖 Overview / 项目概述
 
-This repository serves as a learning backup and practical reference for implementing supervised fine-tuning and reinforcement learning techniques on large language models for mathematical reasoning tasks. The codebase includes working scripts that have been tested and validated.
+This repository provides implemented and validated code examples for Supervised Fine-Tuning (SFT) and Reinforcement Learning (RL) techniques applied to mathematical reasoning tasks using large language models. The codebase includes visualization tools for attention mechanisms in text-to-text generation scenarios and serves as both a learning resource and practical reference for reproducible experiments.
 
 本仓库旨在备份和分享最近学习并实践成功的脚本，以及"文本生成文本"的Attention map简易绘图，主要关注有监督微调和强化学习在数学推理任务中的应用。所有代码均经过测试验证。
 
